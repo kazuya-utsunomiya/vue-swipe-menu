@@ -1,6 +1,6 @@
 {
   "name": "vue-swipe-menu",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "private": false,
   "main": "dist/vue-swipe-menu.common.js",
   "unpkg": "./dist/vue-swipe-menu.umd.min.js",
@@ -15,6 +15,14 @@
     "lint": "vue-cli-service lint",
     "build-bundle": "vue-cli-service build --target lib --name vue-swipe-menu ./src/library-main.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazuya-utsunomiya/vue-swipe-menu.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kazuya-utsunomiya/vue-swipe-menu/issues"
+  },
+  "homepage": "https://github.com/kazuya-utsunomiya/vue-swipe-menu",
   "dependencies": {
     "core-js": "^3.6.4",
     "vue": "^2.6.11"
