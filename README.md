@@ -5,6 +5,8 @@ component for vue.js 2.x
 普通の選択リストと違い、A,B,C,Dと並んでいた場合、AからDに変えようとすると必ずB,C,Dと順番に選択状態が変わります。
 これは無駄なことのようですが、それに合わせて画面を切り替えることで他の状態を見せる効果があり、アバターのパーツを選択するなどに使えます。
 
+[View Demo](https://kazuya-utsunomiya.github.io/vue-swipe-menu/dist/)
+
 ## Install
 ```
 npm i -S vue-swipe-menu
