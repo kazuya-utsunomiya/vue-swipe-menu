@@ -17,7 +17,7 @@
       </div>
     </SwipeMenu>
 
-    <div class="screen">{{ buttonsB[currentPageB-1].color }}</div>
+    <div class="screen" :style="{backgroundColor: buttonsB[currentPageB-1].color}">{{ buttonsB[currentPageB-1].color }}</div>
     <SwipeMenu class="buttons"
                :loop="true"
                :currentPage="currentPageB"
