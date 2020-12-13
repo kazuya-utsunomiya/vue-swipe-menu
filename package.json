@@ -29,8 +29,8 @@
   },
   "homepage": "https://github.com/kazuya-utsunomiya/vue-swipe-menu",
   "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "core-js": "^3.8.1",
+    "vue": "^2.6.12"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.1",
@@ -39,7 +39,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.1.0",
     "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {
     "root": true,
