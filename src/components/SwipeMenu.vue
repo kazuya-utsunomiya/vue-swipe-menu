@@ -5,7 +5,7 @@
        @mousedown="_onTouchStart"
        @wheel="_onWheel">
     <div class="wrapper"
-         ref="infinitySwipeWrapper"
+         ref="swipeWrapper"
          :style="styleObject"
          @transitionend="_onTransitionEnd">
       <slot></slot>
@@ -71,7 +71,7 @@
         }
         this._onTouchMove = this._onTouchMove.bind(this);
         this._onTouchEnd = this._onTouchEnd.bind(this);
-        this.slideEls = [].map.call(this.$refs.infinitySwipeWrapper.children, el => el);
+        this.slideEls = [].map.call(this.$refs.swipeWrapper.children, el => el);
         if (this.loop) {
           this.$nextTick(function () {
             this._createLoop();
@@ -88,7 +88,7 @@
           this.handleResize();
           this.translateOffset = this.centerOffset;
         }
-        this.slideEls = [].map.call(this.$refs.infinitySwipeWrapper.children, el => el);
+        this.slideEls = [].map.call(this.$refs.swipeWrapper.children, el => el);
         this.setPage(page, false);
       }
     },
@@ -223,8 +223,8 @@
       handleResize () {
         if (!this.bulletWidth) {
           this.bulletWidth = 160;
-          if (this.$refs.infinitySwipeWrapper.children[0]) {
-            this.bulletWidth = this.$refs.infinitySwipeWrapper.children[0].clientWidth;
+          if (this.$refs.swipeWrapper.children[0]) {
+            this.bulletWidth = this.$refs.swipeWrapper.children[0].clientWidth;
           }
         }
         let currentCenterOffset = Math.round(this.$el.clientWidth / 2 - (this.bulletWidth / 2));

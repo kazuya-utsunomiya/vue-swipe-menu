@@ -28,7 +28,7 @@ Component example.
                @move="onMoveA"
                @touch-end="onTouchEnd"
                @change-page="onChangePageA">
-      <div class="infinity-swipe-item" v-for="(button, index) in buttonsA" :key="index">
+      <div class="swipe-item" v-for="(button, index) in buttonsA" :key="index">
         <button
                 :class="{active: currentPageA==index+1, disabled: button.disabled}"
                 @click="onButtonClickA(index+1)">
@@ -44,7 +44,7 @@ Component example.
                @move="onMoveB"
                @touch-end="onTouchEnd"
                @change-page="onChangePageB">
-      <div class="infinity-swipe-item" v-for="(button, index) in buttonsB" :key="index">
+      <div class="swipe-item" v-for="(button, index) in buttonsB" :key="index">
         <button
           class="btn-color"
           :class="{active: currentPageB==index+1, disabled: button.disabled}"
@@ -57,7 +57,7 @@ Component example.
 </template>
 
 <script>
-  import InfinitySwipe from 'vue-swipe-menu';
+  import SwipeMenu from 'vue-swipe-menu';
   import 'vue-swipe-menu/dist/vue-swipe-menu.css'
 
   export default {
