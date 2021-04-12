@@ -1,6 +1,6 @@
 {
   "name": "vue-swipe-menu",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "private": false,
   "main": "dist/vue-swipe-menu.common.js",
   "unpkg": "./dist/vue-swipe-menu.umd.min.js",

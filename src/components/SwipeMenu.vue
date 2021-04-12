@@ -66,6 +66,7 @@
     mounted () {
       this.$nextTick(function () {
         if (this.center) {
+          window.addEventListener('resize', this.handleResize);
           this.handleResize();
           this.translateOffset = this.centerOffset;
         }
@@ -81,6 +82,9 @@
           this.setPage(this.currentPage);
         }
       });
+    },
+    beforeDestroy: function () {
+      window.removeEventListener('resize', this.handleResize);
     },
     watch: {
       currentPage: function (page) {
@@ -221,28 +225,15 @@
         //        this.swipe.buttons = this.swipe.buttons.concat(this.swipe.buttons);
       },
       handleResize () {
-        if (!this.bulletWidth) {
-          this.bulletWidth = 160;
-          if (this.$refs.swipeWrapper.children[0]) {
-            this.bulletWidth = this.$refs.swipeWrapper.children[0].clientWidth;
-          }
+        this.bulletWidth = 160;
+        if (this.$refs.swipeWrapper && this.$refs.swipeWrapper.children[0]) {
+          this.bulletWidth = this.$refs.swipeWrapper.children[0].clientWidth;
         }
         let currentCenterOffset = Math.round(this.$el.clientWidth / 2 - (this.bulletWidth / 2));
         if (this.centerOffset !== currentCenterOffset) {
           this.centerOffset = currentCenterOffset;
           this.translateOffset = this.centerOffset;
           this.setPage(this.currentPage);
-        }
-        if (this.center) {
-          if (window.requestAnimationFrame) {
-            window.requestAnimationFrame(() => {
-              this.handleResize();
-            });
-          } else {
-            setTimeout(() => {
-              this.handleResize();
-            }, 1000);
-          }
         }
       }
     },
