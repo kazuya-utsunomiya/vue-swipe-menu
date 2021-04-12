@@ -3,7 +3,6 @@
     <h1>Menu Button demo</h1>
     <div class="screen">{{ currentPageA }}</div>
     <SwipeMenu class="buttons"
-               :loop="true"
                :currentPage="currentPageA"
                :itemWidth="224"
                @move="onMoveA"
@@ -21,8 +20,8 @@
     <h1>Color Button demo</h1>
     <div class="screen" :style="{backgroundColor: buttonsB[currentPageB-1].color}">{{ buttonsB[currentPageB-1].color }}</div>
     <SwipeMenu class="buttons"
-               :loop="true"
                :currentPage="currentPageB"
+               :center="true"
                :itemWidth="50"
                @move="onMoveB"
                @touch-end="onTouchEnd"
@@ -42,7 +41,6 @@
                :class="{hasPrev: currentPageC > 1, hasNext: currentPageC < buttonsC.length}"
                :currentPage="currentPageC"
                :itemWidth="contentWidth"
-               :center="true"
                @move="onMoveC"
                @touch-end="onTouchEnd"
                @change-page="onChangePageC">
