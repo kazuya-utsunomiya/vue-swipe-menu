@@ -1,14 +1,19 @@
 {
   "name": "vue-swipe-menu",
-  "version": "0.1.8",
+  "version": "0.1.12",
   "private": false,
   "main": "dist/vue-swipe-menu.common.js",
   "unpkg": "./dist/vue-swipe-menu.umd.min.js",
   "jsdelivr": "./dist/vue-swipe-menu.umd.min.js",
   "license": "MIT",
   "author": "kazuya utsunomiya",
-  "files": [ "dist" ],
-  "keywords": ["Vue", "Vue.js"],
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "Vue",
+    "Vue.js"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -24,17 +29,17 @@
   },
   "homepage": "https://github.com/kazuya-utsunomiya/vue-swipe-menu",
   "dependencies": {
-    "core-js": "^3.6.4",
-    "vue": "^2.6.11"
+    "core-js": "^3.8.1",
+    "vue": "^2.6.12"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.2.0",
-    "@vue/cli-plugin-eslint": "~4.2.0",
-    "@vue/cli-service": "~4.2.0",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.1.2",
-    "vue-template-compiler": "^2.6.11"
+    "@vue/cli-plugin-babel": "~4.4.1",
+    "@vue/cli-plugin-eslint": "~4.4.1",
+    "@vue/cli-service": "~4.4.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.1.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {
     "root": true,

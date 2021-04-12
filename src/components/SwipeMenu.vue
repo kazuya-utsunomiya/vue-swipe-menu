@@ -5,7 +5,7 @@
        @mousedown="_onTouchStart"
        @wheel="_onWheel">
     <div class="wrapper"
-         ref="infinitySwipeWrapper"
+         ref="swipeWrapper"
          :style="styleObject"
          @transitionend="_onTransitionEnd">
       <slot></slot>
@@ -66,12 +66,13 @@
     mounted () {
       this.$nextTick(function () {
         if (this.center) {
+          window.addEventListener('resize', this.handleResize);
           this.handleResize();
           this.translateOffset = this.centerOffset;
         }
         this._onTouchMove = this._onTouchMove.bind(this);
         this._onTouchEnd = this._onTouchEnd.bind(this);
-        this.slideEls = [].map.call(this.$refs.infinitySwipeWrapper.children, el => el);
+        this.slideEls = [].map.call(this.$refs.swipeWrapper.children, el => el);
         if (this.loop) {
           this.$nextTick(function () {
             this._createLoop();
@@ -82,13 +83,16 @@
         }
       });
     },
+    beforeDestroy: function () {
+      window.removeEventListener('resize', this.handleResize);
+    },
     watch: {
       currentPage: function (page) {
         if (this.center) {
           this.handleResize();
           this.translateOffset = this.centerOffset;
         }
-        this.slideEls = [].map.call(this.$refs.infinitySwipeWrapper.children, el => el);
+        this.slideEls = [].map.call(this.$refs.swipeWrapper.children, el => el);
         this.setPage(page, false);
       }
     },
@@ -221,28 +225,15 @@
         //        this.swipe.buttons = this.swipe.buttons.concat(this.swipe.buttons);
       },
       handleResize () {
-        if (!this.bulletWidth) {
-          this.bulletWidth = 160;
-          if (this.$refs.infinitySwipeWrapper.children[0]) {
-            this.bulletWidth = this.$refs.infinitySwipeWrapper.children[0].clientWidth;
-          }
+        this.bulletWidth = 160;
+        if (this.$refs.swipeWrapper && this.$refs.swipeWrapper.children[0]) {
+          this.bulletWidth = this.$refs.swipeWrapper.children[0].clientWidth;
         }
         let currentCenterOffset = Math.round(this.$el.clientWidth / 2 - (this.bulletWidth / 2));
         if (this.centerOffset !== currentCenterOffset) {
           this.centerOffset = currentCenterOffset;
           this.translateOffset = this.centerOffset;
           this.setPage(this.currentPage);
-        }
-        if (this.center) {
-          if (window.requestAnimationFrame) {
-            window.requestAnimationFrame(() => {
-              this.handleResize();
-            });
-          } else {
-            setTimeout(() => {
-              this.handleResize();
-            }, 1000);
-          }
         }
       }
     },
